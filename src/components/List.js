@@ -35,11 +35,11 @@ const List = () => {
                     borderWidth: 0.5
                 }
             }}>
-            <UpTab.Screen name = "所有事件"
+            <UpTab.Screen name = "所有"
                 component = {ListAll}/>
-            <UpTab.Screen name = "已解決事件"
+            <UpTab.Screen name = "已解決"
                 component = {ListDone}/>
-            <UpTab.Screen name = "未解決事件"
+            <UpTab.Screen name = "未解決"
                 component = {ListNotyet}/>
         </UpTab.Navigator>
     );
