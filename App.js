@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TabBarIOS } from 'react-native';
 import {NavigationContainer, DrawerActions} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {Platform, AsyncStorage} from "react-native";
+import {SplashScreen} from 'expo';
 
 import SolveProblemStackscreen from './src/screen/SolveProblemStackscreen';
 import ListStackscreen from './src/screen/ListStackscreen';
@@ -11,10 +13,37 @@ import AccountStackscreen from './src/screen/AccountStackscreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const PERSISTENCE_KEY = "BUBBLES_NAVIGATION_STATE";
 
 const App = () => {
-  return (
-    <NavigationContainer>
+  const [isloadingComplete, setLoadingComplete] = useState(false);
+  const [initialNavigationState, setInitialNavigationState] = useState();
+
+  React.useEffect(() => {
+    async function loadResourcesAndDataAsync() {
+      try {
+        SplashScreen.preventAutoHide();
+        const savedStateString = await AsyncStorage.getItem(PERSISTENCE_KEY);
+        const state = JSON.parse(savedStateString);
+        setInitialNavigationState(state);
+      } catch(e) {
+        console.warn(e);
+      } finally {
+        setLoadingComplete(true);
+        SplashScreen.hide();
+      }
+    }
+    loadResourcesAndDataAsync();
+  }, []);
+
+  if (!isloadingComplete) {
+    return null;
+  } else {
+    return (
+    <NavigationContainer
+    initialState = {initialNavigationState}
+    onStateChange = {(state) =>
+      AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))}>
       <Tab.Navigator
         tabBarOptions = {{
           activeTintColor: '#269C9B',
@@ -85,6 +114,8 @@ const App = () => {
       </Tab.Navigator>
     </NavigationContainer>
   );
+  }
+  
 }
 
 
