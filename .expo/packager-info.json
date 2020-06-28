@@ -1,9 +1,4 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 36336,
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://5v-6jv.yuhsuan.bubble-finalya.exp.direct",
-  "packagerNgrokUrl": "https://packager.5v-6jv.yuhsuan.bubble-finalya.exp.direct",
-  "ngrokPid": 29756
+  "packagerPort": null,
+  "packagerPid": null
 }
