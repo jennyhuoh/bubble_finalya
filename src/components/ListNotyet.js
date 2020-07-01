@@ -5,8 +5,12 @@ import { apisAreAvailable } from 'expo';
 const ListNotyet = () => {
     return(
         <View style = {styles.listallbg}>
+             <View style = {styles.time}>
+                <View style = {styles.timebg}><Text style = {styles.times}>2020/05/12 星期二</Text></View>
+
+            </View>
             <View style = {styles.eventlist}>
-                <Image style = {styles.eventbubble} source = {require('../img/img_eventbubble.png')}/>
+                <Image style = {styles.eventbubble} source = {require('../img/img_eventbubble3.png')}/>
                 <Image style = {styles.eventbubble} source = {require('../img/img_eventbubble.png')}/>
                 <Image style = {styles.eventbubble} source = {require('../img/img_eventbubble.png')}/>
             </View>
@@ -15,11 +19,7 @@ const ListNotyet = () => {
                 <Image style = {styles.bubbleshadow} source = {require('../img/img_bubbleshadow.png')}/>
                 <Image style = {styles.bubbleshadow} source = {require('../img/img_bubbleshadow.png')}/>
             </View>
-            <View style = {styles.time}>
-                <View style = {styles.timebg}><Text style = {styles.times}>2020|04|09</Text></View>
-                <View style = {styles.timebg}><Text style = {styles.times}>2020|04|10</Text></View>
-                <View style = {styles.timebg}><Text style = {styles.times}>2020|04|12</Text></View>
-            </View>
+
             <Image style = {styles.water} source = {require('../img/img_waters.png')}/>
             <Image style = {styles.imgbubble1} source = {require('../img/img_bubble_new.png')}/>
             <Image style = {styles.imgbubble2} source = {require('../img/img_bubble_new.png')}/>
@@ -117,31 +117,34 @@ const styles = StyleSheet.create({
     bubbleshadow: {
         marginRight: 22
     },
-    time: {
-        flexDirection: 'row',
-        marginLeft: 23,
-        marginTop: 15,
-        justifyContent:'space-around'
-    },
-    time2: {
-        flexDirection: 'row',
-        marginLeft: 23,
-        marginTop: 15,
-        justifyContent:'space-around'
-    },
+    // time: {
+    //     flexDirection: 'row',
+    //     marginLeft: 23,
+    //     marginTop: 15,
+    //     justifyContent:'space-around'
+    // },
+    // time2: {
+    //     flexDirection: 'row',
+    //     marginLeft: 23,
+    //     marginTop: 15,
+    //     justifyContent:'space-around'
+    // },
     times: {
-        width: 90,
-        marginRight: 20,
+        width: 170,
+        marginRight: 100,
         textAlign: 'center',
-        paddingTop: 2.5,
-        color: '#269C9B'
+        paddingTop: 11,
+        color: '#457289',
+        fontWeight:'bold',
+        fontSize:16,
     },
     timebg: {
         backgroundColor: 'white',
-        width: 90,
-        height: 23,
+        width: 170,
+        height: 40,
         borderRadius: 18,
-        marginRight: 20,
+        marginTop: 16,
+        marginLeft: 16,
 
     },
     water: {

@@ -85,6 +85,7 @@ const App = () => {
         component = {FriendStackscreen}
         options = {{
           title: "朋友",
+          
           tabBarIcon: ({focused}) => {
             if(focused) {
               return(
