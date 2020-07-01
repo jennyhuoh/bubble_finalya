@@ -42,7 +42,16 @@ const SolveProblem = () => {
 const [text, setText] = useState('');
 const [messages, setMessages] = useState([]);
 const keyboardVerticalOffset = 660;
+const dataa = [{message:'程設考不好',from:'user'},{message:'社團的事情',from:'user'},{message:'常遲到',from:'user'},{message:'沒有好好念',from:'user'},{message:'沒有確實吸收',from:'user'},
+{message:'把更多時間留給這個科目',from:'user'},{message:'提早看並且多看幾遍',from:'user'},{message:'程設考不好的可能原因?',from:'bot'},{message:'解決辦法?',from:'bot'}]
+dataa.map(data => {
+    if(data.from === 'user'){return  <Image style={{resizeMode:'contain', width:25, marginLeft:-5}} source={require('../img/img_mychatboxline.png')} />}
+    if(data.from === 'bot'){return  <Image style={{resizeMode:'contain', width:25, marginLeft:5}} source={require('../img/img_chatboxline.png')} />}
 
+}
+
+
+)
     return (
     <View style={{backgroundColor: '#E0F3F1'}}> 
         <ScrollView style={{height:575}}>       
@@ -63,9 +72,9 @@ const keyboardVerticalOffset = 660;
                     }    
                 </View>
                 <Image style={{resizeMode:'contain', width:25, marginLeft:-5}} source={require('../img/img_mychatboxline.png')} />
-        </View>
+            </View>
         </ScrollView>
-
+      
         <View>
             <KeyboardAvoidingView behavior='position' keyboardVerticalOffset={keyboardVerticalOffset}>
                 <View style={{backgroundColor:'#E0F3F1', width:380, height: 65}}>
